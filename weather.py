@@ -10,7 +10,7 @@ __author__ = 'jsuch2362'
 
 def main():
     baseurl = "https://query.yahooapis.com/v1/public/yql?"
-    yql_query = "select * from weather.forecast where woeid = 28805879 and u='c'"
+    yql_query = "select * from weather.forecast where woeid = %s and u='c'" % os.environ['woeid']
     yql_url = baseurl + urllib.urlencode({'q': yql_query}) + "&format=json&u=c"
     print "yql_url : " + yql_url
     result = urllib2.urlopen(yql_url).read()
@@ -36,7 +36,7 @@ def main():
     req = urllib2.Request(webhook_url, json.dumps(webhook_data))
     req.add_header('Accept', 'application/vnd.tosslab.jandi-v2+json')
     req.add_header('Content-Type', 'application/json')
-    response = urllib2.urlopen(req)
+    urllib2.urlopen(req)
 
 
 if __name__ == '__main__':
