@@ -1,1 +1,3 @@
-alias jandi-weather='python ../weather.py'
+alias jandi-weather='python weather.py'
+
+echo hello
