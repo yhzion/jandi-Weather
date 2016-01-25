@@ -1,1 +1,1 @@
-alias jandi-weather='python weather.py'
+jandi-weather='python /app/weather.py'
