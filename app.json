@@ -9,9 +9,11 @@
   "repository": "https://github.com/ZeroBrain/jandi-Weather",
   "env": {
     "region": {
-      "generator": "역삼1동"
+      "description": "날씨 예보 지역입니다",
+      "value": "역삼동"
     },
     "webhook_url": {
+      "description": "Jandi 의 Connect-Webhook Url 을 추가해주세요",
       "value": ""
     }
   },
