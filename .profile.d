@@ -1,0 +1,1 @@
+alias jandi-weather="./jandi-weather.sh"
