@@ -10,7 +10,7 @@ __author__ = 'jsuch2362'
 
 def main():
     baseurl = "https://query.yahooapis.com/v1/public/yql?"
-    yql_query = "select * from weather.forecast where woeid = %s and u='c'" % os.environ['woeid']
+    yql_query = "select * from weather.forecast where woeid  in (select woeid from geo.places(1) where text='%s') and u='c'" % os.environ['region']
     yql_url = baseurl + urllib.urlencode({'q': yql_query}) + "&format=json&u=c"
     print "yql_url : " + yql_url
     result = urllib2.urlopen(yql_url).read()
