@@ -25,7 +25,7 @@ def main():
     current_forecast = forecast[0]
 
     webhook_data = {}
-    webhook_data['body'] = region +' - 오늘의 날씨 중계 feat. [Yahoo 날씨 보기](' + channel['link'] + ')'
+    webhook_data['body'] = region +' - 현재 날씨 중계 [Yahoo 날씨 보기](' + channel['link'] + ')'
     webhook_data['connectInfo'] = ['','','']
     webhook_data['connectInfo'][0] = {
         'title': '오늘의 날씨는 최고 : ' + current_forecast['high'] + '\'C 최저 : ' + current_forecast['low'] + '\'C 입니다'}
