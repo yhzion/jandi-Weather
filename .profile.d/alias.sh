@@ -1,1 +1,3 @@
-jandiweather='python /app/weather.py'
+function jandiweather() {
+    command python /app/weather.py
+}
