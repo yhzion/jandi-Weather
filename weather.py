@@ -10,7 +10,8 @@ __author__ = 'jsuch2362'
 
 def main():
     baseurl = "https://query.yahooapis.com/v1/public/yql?"
-    yql_query = "select * from weather.forecast where woeid  in (select woeid from geo.places(1) where text='%s') and u='c'" % os.environ['region']
+    region = os.environ['region']
+    yql_query = "select * from weather.forecast where woeid  in (select woeid from geo.places(1) where text='%s') and u='c'" % region
     yql_url = baseurl + urllib.urlencode({'q': yql_query}) + "&format=json&u=c"
     print "yql_url : " + yql_url
     result = urllib2.urlopen(yql_url).read()
@@ -24,7 +25,7 @@ def main():
     current_forecast = forecast[0]
 
     webhook_data = {}
-    webhook_data['body'] = '오늘의 날씨 중계 feat. [Yahoo 날씨 보기](' + channel['link'] + ')'
+    webhook_data['body'] = region +' - 오늘의 날씨 중계 feat. [Yahoo 날씨 보기](' + channel['link'] + ')'
     webhook_data['connectInfo'] = ['','','']
     webhook_data['connectInfo'][0] = {
         'title': '오늘의 날씨는 최고 : ' + current_forecast['high'] + '\'C 최저 : ' + current_forecast['low'] + '\'C 입니다'}
